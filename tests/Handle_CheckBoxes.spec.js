@@ -4,13 +4,13 @@ test('Handle Checkboxes', async ({page}) =>{
     await page.goto("https://testautomationpractice.blogspot.com/");
 
     //single checkbox
-    // const mondayCheckbox = await page.locator("//input[@id='monday']");
-    // await mondayCheckbox.check();
-    // //await expect(mondayCheckbox).toBeChecked();
-    // await expect(mondayCheckbox.isChecked()).toBeTruthy();
+    const mondayCheckbox = await page.locator("//input[@id='monday']");
+    await mondayCheckbox.check();
+    //await expect(mondayCheckbox).toBeChecked();
+    await expect(mondayCheckbox.isChecked()).toBeTruthy();
 
-    // const sundayCheckbox = await page.locator("//input[@id='sunday']");
-    // await expect(sundayCheckbox).not.toBeChecked();
+    const sundayCheckbox = await page.locator("//input[@id='sunday']");
+    await expect(sundayCheckbox).not.toBeChecked();
 
 
     //Multiple checkboxes
