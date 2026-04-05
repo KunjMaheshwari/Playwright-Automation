@@ -1,0 +1,4 @@
+This is before all hook
+This is before each hook
+This is after each hook
+This is afterall hook
