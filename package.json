@@ -6,7 +6,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "<div align=\"center\">",
   "devDependencies": {
     "@playwright/test": "^1.59.1",
     "@types/node": "^25.4.0",
@@ -14,5 +14,16 @@
   },
   "dependencies": {
     "allure-commandline": "^2.38.1"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KunjMaheshwari/Playwright-Automation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KunjMaheshwari/Playwright-Automation/issues"
+  },
+  "homepage": "https://github.com/KunjMaheshwari/Playwright-Automation#readme"
 }
