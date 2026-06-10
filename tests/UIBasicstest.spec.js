@@ -36,6 +36,14 @@ test.only('First playwright test', async({browser})=>{
     console.log(productText);
 
     await expect(pageTitle).toHaveText('iphone X');
+
+    const cardTitles = await page.locator("//h4[@class='card-title']/a");
+
+    const allTitles = await cardTitles.allTextContents();
+
+    console.log(allTitles);
+
+    
 });
 
 test('Page playwright test', async({page})=>{
