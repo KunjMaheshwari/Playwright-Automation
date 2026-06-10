@@ -42,8 +42,6 @@ test.only('First playwright test', async({browser})=>{
     const allTitles = await cardTitles.allTextContents();
 
     console.log(allTitles);
-
-    
 });
 
 test('Page playwright test', async({page})=>{

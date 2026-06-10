@@ -7,7 +7,7 @@ test("Broswer context validation error login", async({page})=>{
 
     await page.fill("//input[@id='firstName']", "Kunj");
     await page.fill("//input[@id='lastName']", "Maheshwari");
-    await page.fill("//input[@id='userEmail']", "kunj5@gmail.com");
+    await page.fill("//input[@id='userEmail']", "kunj8@gmail.com");
     await page.fill("//input[@id='userMobile']", "1234567890");
     const occupationSelect = await page.locator("//select[@formcontrolname='occupation']");
     await occupationSelect.selectOption("Student");
@@ -19,7 +19,7 @@ test("Broswer context validation error login", async({page})=>{
 
     await page.click("//button[text()='Login']");
 
-    await page.fill("//input[@id='userEmail']", "kunj5@gmail.com");
+    await page.fill("//input[@id='userEmail']", "kunj8@gmail.com");
     await page.fill("//input[@id='userPassword']", "Kunj123@123");
 
     await page.click("//input[@id='login']");
@@ -31,6 +31,14 @@ test("Broswer context validation error login", async({page})=>{
     const cardTitleNames = await cardTitle.allTextContents();
 
     console.log(cardTitleNames);
+
+    const isBlinking = await page.locator("//a[@class='blinkingText']");
+
+    if(await expect(isBlinking).toHaveAttribute("class", "blinkingText")){
+        console.log("The link is blinking");
+    }else{
+        console.log("the link is not blinking");
+    }
 
     await page.waitForTimeout(3000);
 })
