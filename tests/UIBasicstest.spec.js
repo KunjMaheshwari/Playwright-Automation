@@ -1,6 +1,6 @@
 import {test, expect} from "@playwright/test";
 
-test.only('First playwright test', async({browser})=>{
+test('First playwright test', async({browser})=>{
     const context =  await browser.newContext();
     const page = await context.newPage();
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
@@ -50,4 +50,19 @@ test('Page playwright test', async({page})=>{
     await expect(page).toHaveTitle("Google");
 
     await page.waitForTimeout(5000);
+});
+
+test.only("Child window handles", async({browser})=>{
+    const context = await browser.newContext();
+    const page = await context.newPage();
+
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    const documentLink = page.locator("(//a[@class='blinkingText'])[1]");
+
+    const [newPage] = await Promise.all([context.waitForEvent('page'), documentLink.click()]); // this will come out only after all the steps are completed inside the Promise.
+
+    const isHeadingDisplayed = await newPage.locator("//h1[text()='Documents request']");
+
+    await expect(isHeadingDisplayed).toBeVisible();
+    
 });
