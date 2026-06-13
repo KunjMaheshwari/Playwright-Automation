@@ -7,7 +7,7 @@ test("Broswer context validation error login", async({page})=>{
 
     await page.fill("//input[@id='firstName']", "Kunj");
     await page.fill("//input[@id='lastName']", "Maheshwari");
-    await page.fill("//input[@id='userEmail']", "kunj8@gmail.com");
+    await page.fill("//input[@id='userEmail']", "kunj13@gmail.com");
     await page.fill("//input[@id='userMobile']", "1234567890");
     const occupationSelect = await page.locator("//select[@formcontrolname='occupation']");
     await occupationSelect.selectOption("Student");
@@ -19,7 +19,7 @@ test("Broswer context validation error login", async({page})=>{
 
     await page.click("//button[text()='Login']");
 
-    await page.fill("//input[@id='userEmail']", "kunj8@gmail.com");
+    await page.fill("//input[@id='userEmail']", "kunj13@gmail.com");
     await page.fill("//input[@id='userPassword']", "Kunj123@123");
 
     await page.click("//input[@id='login']");
@@ -40,5 +40,17 @@ test("Broswer context validation error login", async({page})=>{
         console.log("the link is not blinking");
     }
 
-    await page.waitForTimeout(3000);
+    const products = await page.locator("//div[@class='card']");
+    const productTitle = "ZARA COAT 3";
+
+    const count = products.count();
+
+    for(let i =0;i < count;++i){
+        if(await products.nth(i).locator("b").textContent() == productTitle){
+            await products.nth(i).locator("text= Add To Cart").click();
+            console.log("Product added successfully to the cart");
+        }
+    }
+
+    await page.waitForTimeout(5000);
 })
