@@ -26,8 +26,8 @@ test("Multiple Upload Files", async({page})=>{
     await page.waitForTimeout(5000);
 
     //verifying whether the files are uploaded or not
-    expect(await page.locator("#fileList li:nth-child(1)")).toHaveText('testfile1.pdf');
-    expect(await page.locator("#fileList li:nth-child(1)")).toHaveText('testfile2.pdf');
+    expect(page.locator("#fileList li:nth-child(1)")).toHaveText('testfile1.pdf');
+    expect(page.locator("#fileList li:nth-child(1)")).toHaveText('testfile2.pdf');
     
     await page.waitForTimeout(5000);
 
@@ -37,5 +37,5 @@ test("Multiple Upload Files", async({page})=>{
     await page.waitForTimeout(3000);
 
     //verifying the files are removed or not
-    expect(await page.locator("#fileList li:nth-child(1)")).toHaveText("No Files Selected");
+    expect(page.locator("#fileList li:nth-child(1)")).toHaveText("No Files Selected");
 })

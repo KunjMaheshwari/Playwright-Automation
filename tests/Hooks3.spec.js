@@ -29,7 +29,7 @@ test.afterAll(async () => {
 test("Home Page Test", async () => {
     //Home page
     const products = await page.$$("//div[@class='card-block']");
-    expect(products).toHaveLength(9);
+    expect(await products).toBeVisible();
 });
 
 test("Add Product to Cart", async () => {

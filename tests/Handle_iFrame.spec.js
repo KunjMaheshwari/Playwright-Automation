@@ -12,7 +12,7 @@ test("Handling iFrame", async({page}) =>{
     await frame1.locator("//input[@name='mytext1']").fill("Kunj Maheshwari");
 
     //Apprach 2 -> Using the frame locator
-    const inputbox = await page.frameLocator("//frame[@src='frame_2.html']").locator("//input[@name='mytext2']");
+    const inputbox = page.frameLocator("//frame[@src='frame_2.html']").locator("//input[@name='mytext2']"); // never use await with the frameLocatory.
 
     await inputbox.fill("Kunj Maheshwari");
     

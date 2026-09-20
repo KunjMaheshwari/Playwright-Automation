@@ -4,7 +4,7 @@ test('Build In Locators', async ({page}) =>{
     
     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
-    const logoImage = await page.getByAltText("company-branding");
+    const logoImage = page.getByAltText("company-branding");
     await expect(logoImage).toBeVisible();
 
     await page.getByPlaceholder("Username").fill("Admin");

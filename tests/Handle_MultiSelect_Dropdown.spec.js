@@ -13,7 +13,7 @@ test('Handle Multi Select Dropdown', async({page}) =>{
 
     //2. check the number of options via array
     const totalElementsArray = await page.$$("//select[@id='colors']/option");
-    console.log(await totalElementsArray.length);
+    console.log(totalElementsArray.length);
     expect(totalElementsArray.length).toBe(7);
 
     //3. check presence of value in the dropdown

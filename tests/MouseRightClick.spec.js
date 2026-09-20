@@ -3,7 +3,7 @@ import {test, expect} from '@playwright/test';
 test("Mouse Right Click Action", async({page})=>{
     await page.goto("https://swisnl.github.io/jQuery-contextMenu/demo.html");
 
-    const button = await page.locator("//span[text()='right click me']");
+    const button = page.locator("//span[text()='right click me']");
 
     //right click
 
