@@ -1,7 +1,9 @@
 import {test, expect} from "@playwright/test";
 
 test("Broswer context validation error login", async({page})=>{
-    await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
+    await page.goto("https://rahulshettyacademy.com/client/#/auth/login", {
+        waitUnitl: "networkidle"
+    });
 
     await page.click("//a[text()='Register here']");
 
@@ -24,7 +26,7 @@ test("Broswer context validation error login", async({page})=>{
 
     await page.click("//input[@id='login']");
 
-    await page.waitForLoadState('networkidle');
+    //await page.waitForLoadState('networkidle');
 
     const cardTitle = await page.locator("//div[@class='card-body']/descendant::b");
 
