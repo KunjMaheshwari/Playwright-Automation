@@ -4,7 +4,7 @@ test('Handling Radio Btn', async({page}) =>{
     await page.goto("https://testautomationpractice.blogspot.com/");
 
     //handle the radio btn
-    const maleRadioBtn =  await page.locator("//input[@id='male']");
+    const maleRadioBtn = page.locator("//input[@id='male']");
 
     //check the radio btn
     await maleRadioBtn.check();
