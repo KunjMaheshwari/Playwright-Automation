@@ -25,7 +25,7 @@ test('Locators', async({page}) =>{
 
     await page.locator("//button[text()='Log in']").click();
 
-    const logoutLink = await page.locator("//a[text()='Log out']");
+    const logoutLink = page.locator("//a[text()='Log out']");
 
     await expect(logoutLink).toBeVisible();
 
